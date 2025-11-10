@@ -1,0 +1,69 @@
+{
+  "app": {
+    "title": "Ejemplo de React G11n",
+    "subtitle": "Una demostración completa de la biblioteca react-g11n"
+  },
+  "languageSwitcher": {
+    "title": "Selector de Idioma",
+    "currentLanguage": "Idioma Actual: {{language}}"
+  },
+  "translation": {
+    "title": "Ejemplos de Traducción",
+    "simple": "Traducción simple",
+    "interpolation": "¡Hola, {{name}}! Bienvenido a React G11n.",
+    "nested": {
+      "level1": {
+        "level2": "Esta es una clave de traducción anidada"
+      }
+    },
+    "pluralization": {
+      "items": {
+        "zero": "Sin artículos",
+        "one": "Un artículo",
+        "other": "{{count}} artículos"
+      },
+      "messages": {
+        "zero": "No tienes mensajes",
+        "one": "Tienes un mensaje",
+        "other": "Tienes {{count}} mensajes"
+      }
+    }
+  },
+  "formatting": {
+    "title": "Ejemplos de Formato",
+    "date": "Fecha",
+    "time": "Hora",
+    "dateTime": "Fecha y Hora",
+    "number": "Número",
+    "currency": "Moneda",
+    "percent": "Porcentaje",
+    "list": "Lista",
+    "relativeTime": "Tiempo Relativo"
+  },
+  "collation": {
+    "title": "Ejemplos de Ordenación",
+    "description": "Ordenación de cadenas según la configuración regional",
+    "unsorted": "Sin ordenar",
+    "sorted": "Ordenado"
+  },
+  "segmentation": {
+    "title": "Ejemplos de Segmentación",
+    "description": "Segmentación de texto en palabras, oraciones y grafemas",
+    "words": "Palabras",
+    "sentences": "Oraciones",
+    "graphemes": "Grafemas",
+    "sampleText": "¡Hola mundo! Este es un texto de ejemplo. Tiene múltiples oraciones."
+  },
+  "standalone": {
+    "title": "Ejemplos de API Independiente",
+    "description": "Uso de la API independiente fuera de componentes React",
+    "translate": "Traducir",
+    "format": "Formatear",
+    "result": "Resultado"
+  },
+  "footer": {
+    "documentation": "Documentación",
+    "github": "GitHub",
+    "npm": "npm"
+  }
+}

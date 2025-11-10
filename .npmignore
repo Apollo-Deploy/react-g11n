@@ -1,0 +1,43 @@
+# Source files
+src/
+tests/
+examples/
+
+# Configuration files
+tsconfig.json
+tsconfig.build.json
+tsconfig.build.esm.json
+tsconfig.build.cjs.json
+vitest.config.ts
+.eslintrc.json
+.prettierrc.json
+
+# Development files
+.github/
+.vscode/
+.idea/
+
+# Testing
+coverage/
+*.test.ts
+*.test.tsx
+__tests__/
+
+# Documentation (keep only essential)
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+
+# Build artifacts
+*.tsbuildinfo
+.cache/
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+.DS_Store
