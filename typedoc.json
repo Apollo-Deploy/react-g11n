@@ -1,0 +1,26 @@
+{
+  "entryPoints": ["src/index.ts"],
+  "out": "docs",
+  "name": "React G11n",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true,
+  "readme": "README.md",
+  "plugin": [],
+  "theme": "default",
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "React Components",
+    "React Hooks",
+    "Core Services",
+    "Standalone API",
+    "Types",
+    "*"
+  ],
+  "sort": ["source-order"],
+  "navigation": {
+    "includeCategories": true,
+    "includeGroups": true
+  }
+}

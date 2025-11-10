@@ -49,6 +49,8 @@
     "build:cjs": "tsc -p tsconfig.build.cjs.json",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types",
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
+    "docs:build": "typedoc --out docs src/index.ts",
+    "docs:serve": "npx http-server docs -p 8080 -o",
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
@@ -84,6 +86,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "^23.0.0",
     "prettier": "^3.0.0",
+    "typedoc": "^0.25.13",
     "typescript": "^5.3.0",
     "vitest": "^1.0.0"
   },
