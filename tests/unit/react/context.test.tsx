@@ -195,7 +195,7 @@ describe('I18nContext', () => {
         expect(screen.getByTestId('consumer2').textContent).toBe('en');
       });
 
-      const button = screen.getByText('Change Locale');
+      const button = await screen.findByText('Change Locale');
       button.click();
 
       await waitFor(() => {

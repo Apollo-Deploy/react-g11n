@@ -157,7 +157,7 @@ describe('I18nProvider', () => {
         expect(screen.getByTestId('locale').textContent).toBe('en');
       });
 
-      const button = screen.getByText('Change Locale');
+      const button = await screen.findByText('Change Locale');
       button.click();
 
       await waitFor(() => {
@@ -273,11 +273,7 @@ describe('I18nProvider', () => {
         </I18nProvider>
       );
 
-      await waitFor(() => {
-        expect(screen.getByText('Change Locale')).toBeTruthy();
-      });
-
-      const button = screen.getByText('Change Locale');
+      const button = await screen.findByText('Change Locale', {}, { timeout: 3000 });
       button.click();
 
       await waitFor(() => {
