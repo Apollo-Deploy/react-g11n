@@ -86,20 +86,15 @@ export class TranslationLoader {
     // Construct the path relative to the project root
     const path = this.getLoadPath(locale, namespace);
     
-    try {
-      // Use fetch to load translation files as static assets
-      // This works in both development and production
-      const response = await fetch(`/${path}`);
-      
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-      
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      // If fetch fails, throw the error to be handled by the caller
-      throw error;
+    // Use fetch to load translation files as static assets
+    // This works in both development and production
+    const response = await fetch(`/${path}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
+    
+    const data = await response.json();
+    return data;
   }
 }
