@@ -557,13 +557,13 @@ try {
 
 ## Examples
 
-Check out the [examples directory](./examples) for complete working examples:
+Check out the [examples directory](https://github.com/Apollo-Deploy/react-g11n/tree/main/examples) for complete working examples:
 
-- [Basic React App](./examples/basic-react-app) - Complete React application demonstrating all features
+- [Basic React App](https://github.com/Apollo-Deploy/react-g11n/tree/main/examples/basic-react-app) - Complete React application demonstrating all features
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md) for details on:
+We welcome contributions! Please see our [Contributing Guide](https://github.com/Apollo-Deploy/react-g11n/blob/main/CONTRIBUTING.md) for details on:
 
 - Development setup
 - Coding standards
@@ -572,4 +572,4 @@ We welcome contributions! Please see our [Contributing Guide](./CONTRIBUTING.md)
 
 ## License
 
-MIT © [Your Organization](./LICENSE)
+MIT © [Apollo Deploy](https://github.com/Apollo-Deploy/react-g11n/blob/main/LICENSE)
