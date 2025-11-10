@@ -86,9 +86,12 @@ export class TranslationLoader {
     // Construct the path relative to the project root
     const path = this.getLoadPath(locale, namespace);
     
+    // Ensure path starts with / for absolute path from public root
+    const fetchPath = path.startsWith('/') ? path : `/${path}`;
+    
     // Use fetch to load translation files as static assets
     // This works in both development and production
-    const response = await fetch(`/${path}`);
+    const response = await fetch(fetchPath);
     
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);

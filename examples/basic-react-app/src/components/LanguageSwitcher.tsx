@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-g11n';
+import { useTranslation } from '@apollo-deploy/react-g11n';
 
 const LANGUAGES = [
   { code: 'en', name: 'English' },

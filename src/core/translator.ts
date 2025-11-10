@@ -89,11 +89,44 @@ export class Translator {
     }
 
     // Apply interpolation if needed
-    if (options?.interpolation) {
-      return this.interpolator.interpolate(translation, options.interpolation);
+    const interpolationVars = this.extractInterpolationVars(options);
+    if (interpolationVars && Object.keys(interpolationVars).length > 0) {
+      return this.interpolator.interpolate(translation, interpolationVars);
     }
 
     return translation;
+  }
+
+  /**
+   * Extract interpolation variables from options
+   * Supports both options.interpolation and direct properties
+   * 
+   * @param options - Translation options
+   * @returns Interpolation variables or undefined
+   */
+  private extractInterpolationVars(options?: TranslationOptions<any>): Record<string, any> | undefined {
+    if (!options) {
+      return undefined;
+    }
+
+    // If interpolation property exists, use it
+    if (options.interpolation) {
+      return options.interpolation;
+    }
+
+    // Otherwise, extract all non-reserved properties as interpolation vars
+    const reservedKeys = ['count', 'ordinal', 'context', 'defaultValue', 'ns', 'interpolation', '_key'];
+    const vars: Record<string, any> = {};
+    let hasVars = false;
+
+    for (const key in options) {
+      if (!reservedKeys.includes(key) && options.hasOwnProperty(key)) {
+        vars[key] = options[key];
+        hasVars = true;
+      }
+    }
+
+    return hasVars ? vars : undefined;
   }
 
   /**
@@ -118,11 +151,14 @@ export class Translator {
       return null;
     }
 
+    // Extract interpolation variables
+    const interpolationVars = this.extractInterpolationVars(options);
+
     // If it's a string, just return it (not a plural form)
     if (typeof rawData === 'string') {
-      if (options.interpolation) {
+      if (interpolationVars || options.count !== undefined) {
         return this.interpolator.interpolate(rawData, {
-          ...options.interpolation,
+          ...interpolationVars,
           count: options.count,
         });
       }
@@ -140,9 +176,9 @@ export class Translator {
       );
 
       // Apply interpolation with count included
-      if (options.interpolation || options.count !== undefined) {
+      if (interpolationVars || options.count !== undefined) {
         return this.interpolator.interpolate(pluralTranslation, {
-          ...options.interpolation,
+          ...interpolationVars,
           count: options.count,
         });
       }

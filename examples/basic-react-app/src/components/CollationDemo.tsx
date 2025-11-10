@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-g11n';
-import { CollationService } from 'react-g11n';
+import { useTranslation } from '@apollo-deploy/react-g11n';
+import { CollationService } from '@apollo-deploy/react-g11n';
 import { useMemo } from 'react';
 
 export default function CollationDemo() {

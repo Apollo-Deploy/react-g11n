@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-g11n';
-import { i18n } from 'react-g11n';
+import { useTranslation } from '@apollo-deploy/react-g11n';
+import { i18n } from '@apollo-deploy/react-g11n';
 import { useState } from 'react';
 
 export default function StandaloneDemo() {
@@ -16,7 +16,7 @@ export default function StandaloneDemo() {
   const handleFormat = () => {
     // Using standalone API for formatting
     const now = new Date();
-    const result = i18n.formatDate(now, 'long');
+    const result = i18n.format.date(now, 'long');
     setFormatResult(result);
   };
 
@@ -38,7 +38,7 @@ export default function StandaloneDemo() {
       <h3>{t('standalone.format')}</h3>
       <div className="demo-item">
         <button onClick={handleFormat}>
-          Format date using i18n.formatDate(new Date(), 'long')
+          Format date using i18n.format.date(new Date(), 'long')
         </button>
         {formatResult && (
           <div className="result">{formatResult}</div>
@@ -56,9 +56,9 @@ export default function StandaloneDemo() {
           <li>Server-side code</li>
         </ul>
         <code>
-          import &#123; i18n &#125; from 'react-g11n';<br />
+          import &#123; i18n &#125; from '@apollo-deploy/react-g11n';<br />
           const text = i18n.t('key');<br />
-          const formatted = i18n.formatNumber(1234);
+          const formatted = i18n.format.number(1234);
         </code>
       </div>
     </div>

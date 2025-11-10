@@ -1,4 +1,4 @@
-import { I18nProvider, useTranslation } from 'react-g11n';
+import { I18nProvider, useTranslation } from '@apollo-deploy/react-g11n';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import TranslationDemo from './components/TranslationDemo';
 import FormattingDemo from './components/FormattingDemo';
@@ -7,7 +7,11 @@ import SegmentationDemo from './components/SegmentationDemo';
 import StandaloneDemo from './components/StandaloneDemo';
 
 function AppContent() {
-  const { t } = useTranslation('common');
+  const { t, isReady, isLoading } = useTranslation('common');
+
+  if (isLoading || !isReady) {
+    return <div>Loading translations...</div>;
+  }
 
   return (
     <>
@@ -49,6 +53,8 @@ export default function App() {
         defaultLocale: 'en',
         supportedLocales: ['en', 'es', 'fr'],
         fallbackLocale: 'en',
+        namespaces: ['common'],
+        defaultNamespace: 'common',
         loadPath: '/locales/{{locale}}/{{namespace}}.json',
         debug: true,
       }}

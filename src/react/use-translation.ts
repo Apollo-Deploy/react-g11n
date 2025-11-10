@@ -14,7 +14,7 @@
 
 import { useContext } from 'react';
 import { I18nContext } from './context';
-import type { UseTranslationResult } from '../types';
+import type { UseTranslationResult, TranslationKey, TranslationOptions } from '../types';
 
 /**
  * useTranslation hook
@@ -22,17 +22,18 @@ import type { UseTranslationResult } from '../types';
  * Access translation functionality in React components.
  * Must be used within an I18nProvider.
  * 
+ * @param namespace - Optional namespace to use for translations in this component
  * @returns Translation utilities and state
  * @throws Error if used outside I18nProvider
  * 
  * @example
  * ```tsx
  * function MyComponent() {
- *   const { t, locale, changeLocale, format } = useTranslation();
+ *   const { t, locale, changeLocale, format } = useTranslation('common');
  *   
  *   return (
  *     <div>
- *       <h1>{t('common.greeting', { name: 'World' })}</h1>
+ *       <h1>{t('greeting', { name: 'World' })}</h1>
  *       <p>Current locale: {locale}</p>
  *       <p>{format.date(new Date(), 'long')}</p>
  *       <button onClick={() => changeLocale('es')}>
@@ -43,7 +44,7 @@ import type { UseTranslationResult } from '../types';
  * }
  * ```
  */
-export function useTranslation(): UseTranslationResult {
+export function useTranslation(namespace?: string): UseTranslationResult {
   const context = useContext(I18nContext);
 
   if (!context) {
@@ -53,8 +54,15 @@ export function useTranslation(): UseTranslationResult {
     );
   }
 
+  // If a namespace is provided, wrap the translation function to automatically inject it
+  const t = namespace
+    ? <K extends TranslationKey>(key: K, options?: TranslationOptions<K>): string => {
+        return context.t(key, { ...options, ns: namespace });
+      }
+    : context.t;
+
   return {
-    t: context.t,
+    t,
     locale: context.locale,
     locales: context.locales,
     changeLocale: context.changeLocale,

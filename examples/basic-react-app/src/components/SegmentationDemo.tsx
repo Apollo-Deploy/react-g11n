@@ -1,26 +1,23 @@
-import { useTranslation } from 'react-g11n';
-import { SegmentationService } from 'react-g11n';
+import { useTranslation } from '@apollo-deploy/react-g11n';
 import { useMemo } from 'react';
 
 export default function SegmentationDemo() {
-  const { t, locale } = useTranslation('common');
+  const { t, segmentation } = useTranslation('common');
 
   const sampleText = t('segmentation.sampleText');
-  
-  const segmentationService = useMemo(() => new SegmentationService(locale), [locale]);
 
   const words = useMemo(() => {
-    return segmentationService.segmentWords(sampleText);
-  }, [segmentationService, sampleText]);
+    return segmentation.words(sampleText);
+  }, [segmentation, sampleText]);
 
   const sentences = useMemo(() => {
-    return segmentationService.segmentSentences(sampleText);
-  }, [segmentationService, sampleText]);
+    return segmentation.sentences(sampleText);
+  }, [segmentation, sampleText]);
 
   const graphemes = useMemo(() => {
     const firstWord = words[0] || '';
-    return segmentationService.segmentGraphemes(firstWord);
-  }, [segmentationService, words]);
+    return segmentation.graphemes(firstWord);
+  }, [segmentation, words]);
 
   return (
     <div className="section">

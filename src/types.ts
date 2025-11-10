@@ -78,6 +78,8 @@ export interface TranslationOptions<K extends TranslationKey = TranslationKey> {
   interpolation?: Record<string, any>;
   /** Internal: Type-safe key reference (not used at runtime) */
   _key?: K;
+  /** Allow any additional properties for interpolation variables */
+  [key: string]: any;
 }
 
 /**
