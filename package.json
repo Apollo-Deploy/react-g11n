@@ -1,6 +1,7 @@
 {
   "name": "@apollo-deploy/react-g11n",
   "version": "1.0.0",
+  "type": "module",
   "description": "A modern, type-safe globalization library for React",
   "keywords": [
     "react",
