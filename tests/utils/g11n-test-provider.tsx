@@ -153,8 +153,9 @@ export function TestI18nProvider({ config, children, initialLocale, onError }: T
       displayNames: services.displayNamesService,
       segmentation: services.segmentationService,
       document: services.documentService,
+      config,
     };
-  }, [locale, isReady, isLoading, t, changeLocale, services]);
+  }, [locale, isReady, isLoading, t, changeLocale, services, config]);
 
   return <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>;
 }

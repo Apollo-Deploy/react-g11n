@@ -81,7 +81,7 @@ describe('TranslationStore', () => {
       const authData = { login: 'Login' };
       
       const loadSpy = vi.spyOn(mockLoader, 'loadTranslation')
-        .mockImplementation(async (locale, namespace) => {
+        .mockImplementation(async (_, namespace) => {
           if (namespace === 'common') return commonData;
           if (namespace === 'auth') return authData;
           return {};
@@ -214,7 +214,7 @@ describe('TranslationStore', () => {
       const profileData = { name: 'Name' };
 
       vi.spyOn(mockLoader, 'loadTranslation')
-        .mockImplementation(async (locale, namespace) => {
+        .mockImplementation(async (_locale, namespace) => {
           if (namespace === 'common') return commonData;
           if (namespace === 'auth') return authData;
           if (namespace === 'profile') return profileData;
