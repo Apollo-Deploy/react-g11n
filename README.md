@@ -2,7 +2,7 @@
 
 A modern, type-safe globalization library for React
 
-[![npm version](https://img.shields.io/npm/v/react-g11n.svg)](https://www.npmjs.com/package/react-g11n)
+[![npm version](https://img.shields.io/npm/v/@apollo-deploy/react-g11n.svg)](https://www.npmjs.com/package/@apollo-deploy/react-g11n)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/Apollo-Deploy/react-g11n/ci.yml?branch=main)](https://github.com/Apollo-Deploy/react-g11n/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
@@ -29,19 +29,19 @@ A modern, type-safe globalization library for React
 
 ```bash
 # npm
-npm install react-g11n
+npm install @apollo-deploy/react-g11n
 
 # yarn
-yarn add react-g11n
+yarn add @apollo-deploy/react-g11n
 
 # pnpm
-pnpm add react-g11n
+pnpm add @apollo-deploy/react-g11n
 ```
 
 ## Quick Start
 
 ```tsx
-import { I18nProvider, useTranslation } from 'react-g11n';
+import { I18nProvider, useTranslation } from '@apollo-deploy/react-g11n';
 
 // 1. Wrap your app with I18nProvider
 function App() {
@@ -81,7 +81,7 @@ function MyComponent() {
 The `I18nProvider` component initializes the globalization system and makes it available to all child components:
 
 ```tsx
-import { I18nProvider } from 'react-g11n';
+import { I18nProvider } from '@apollo-deploy/react-g11n';
 
 function App() {
   return (
@@ -107,7 +107,7 @@ function App() {
 The `useTranslation` hook provides access to all globalization features:
 
 ```tsx
-import { useTranslation } from 'react-g11n';
+import { useTranslation } from '@apollo-deploy/react-g11n';
 
 function MyComponent() {
   const {
@@ -140,7 +140,7 @@ function MyComponent() {
 For use outside of React components (utilities, services, middleware):
 
 ```typescript
-import { i18n } from 'react-g11n/standalone';
+import { i18n } from '@apollo-deploy/react-g11n/standalone';
 
 // Initialize the standalone instance
 await i18n.init({
@@ -466,7 +466,7 @@ import type {
   DateFormat,
   TimeFormat,
   ListFormatType,
-} from 'react-g11n';
+} from '@apollo-deploy/react-g11n';
 
 // Type-safe translation function
 const t: TranslateFn = useTranslation().t;
@@ -495,7 +495,7 @@ import {
   InvalidLocaleError,
   MissingTranslationError,
   InterpolationError,
-} from 'react-g11n';
+} from '@apollo-deploy/react-g11n';
 
 try {
   await i18n.setLocale('invalid');
