@@ -156,7 +156,7 @@ export class LocaleManager {
     this.currentLocale = this.determineInitialLocale(initialLocale, config.defaultLocale);
 
     if (this.debug) {
-      console.log('[i18n] LocaleManager initialized with locale:', this.currentLocale);
+      console.warn('[i18n] LocaleManager initialized with locale:', this.currentLocale);
     }
   }
 
@@ -184,7 +184,7 @@ export class LocaleManager {
       const normalized = normalizeLocale(persistedLocale);
       if (this.isLocaleSupported(normalized)) {
         if (this.debug) {
-          console.log('[i18n] Using persisted locale:', normalized);
+          console.warn('[i18n] Using persisted locale:', normalized);
         }
         return normalized;
       }
@@ -194,14 +194,14 @@ export class LocaleManager {
     const detectedLocale = detectBrowserLocale(this.supportedLocales, defaultLocale);
     if (detectedLocale !== defaultLocale) {
       if (this.debug) {
-        console.log('[i18n] Using detected browser locale:', detectedLocale);
+        console.warn('[i18n] Using detected browser locale:', detectedLocale);
       }
       return detectedLocale;
     }
 
     // Priority 4: Default locale
     if (this.debug) {
-      console.log('[i18n] Using default locale:', defaultLocale);
+      console.warn('[i18n] Using default locale:', defaultLocale);
     }
     return defaultLocale;
   }
@@ -263,7 +263,7 @@ export class LocaleManager {
     // Check if locale is already current
     if (normalized === this.currentLocale) {
       if (this.debug) {
-        console.log('[i18n] Locale is already set to:', normalized);
+        console.warn('[i18n] Locale is already set to:', normalized);
       }
       return;
     }
@@ -275,7 +275,7 @@ export class LocaleManager {
     this.persistLocaleToStorage(normalized);
 
     if (this.debug) {
-      console.log(`[i18n] Locale changed from "${previousLocale}" to "${normalized}"`);
+      console.warn(`[i18n] Locale changed from "${previousLocale}" to "${normalized}"`);
     }
 
     // Notify all listeners

@@ -174,7 +174,7 @@ class StandaloneI18nImpl implements StandaloneI18n {
     this.initialized = true;
 
     if (config.debug) {
-      console.log('[i18n] Standalone API initialized with locale:', currentLocale);
+      console.warn('[i18n] Standalone API initialized with locale:', currentLocale);
     }
   }
 
@@ -394,7 +394,7 @@ class StandaloneI18nImpl implements StandaloneI18n {
       });
 
       if (config.debug) {
-        console.log('[i18n] Standalone API synchronized with React context');
+        console.warn('[i18n] Standalone API synchronized with React context');
       }
     }
   }

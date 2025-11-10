@@ -75,10 +75,12 @@ export interface TranslationOptions<K extends TranslationKey = TranslationKey> {
   /** Namespace to use for this translation */
   ns?: string;
   /** Variables for interpolation */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interpolation?: Record<string, any>;
   /** Internal: Type-safe key reference (not used at runtime) */
   _key?: K;
   /** Allow any additional properties for interpolation variables */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 

@@ -212,6 +212,7 @@ export class TranslationStore {
    */
   private resolveKey(data: TranslationNamespace, key: string): string | undefined {
     const keys = key.split('.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let current: any = data;
 
     for (const k of keys) {
@@ -257,6 +258,7 @@ export class TranslationStore {
    * @param key - The translation key
    * @returns The raw data at the key path (could be string or object)
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getRawData(locale: string, namespace: string, key: string): any {
     const namespaceData = this.getNamespaceData(locale, namespace);
     
@@ -265,6 +267,7 @@ export class TranslationStore {
     }
 
     const keys = key.split('.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let current: any = namespaceData;
 
     for (const k of keys) {

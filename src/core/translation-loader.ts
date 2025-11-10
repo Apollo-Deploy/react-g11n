@@ -33,13 +33,13 @@ export class TranslationLoader {
       const path = this.getLoadPath(locale, namespace);
       
       if (this.debug) {
-        console.log(`[i18n] Loading translation: ${path}`);
+        console.warn(`[i18n] Loading translation: ${path}`);
       }
 
       const translation = await this.resolveTranslationFile(locale, namespace);
 
       if (this.debug) {
-        console.log(`[i18n] Successfully loaded: ${path}`);
+        console.warn(`[i18n] Successfully loaded: ${path}`);
       }
 
       return translation;

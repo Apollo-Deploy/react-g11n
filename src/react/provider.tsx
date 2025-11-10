@@ -154,7 +154,8 @@ export function I18nProvider({
     };
 
     loadInitialTranslations();
-  }, []); // Only run once on mount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only run once on mount - dependencies are stable service instances
 
   // Subscribe to locale changes
   useEffect(() => {

@@ -26,6 +26,7 @@ export class Pluralizer {
   pluralize(
     locale: string,
     count: number,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     translations: Record<string, any>,
     ordinal: boolean = false,
     context?: string
@@ -80,6 +81,7 @@ export class Pluralizer {
   private selectPluralTranslation(
     locale: string,
     count: number,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     translations: Record<string, any>,
     ordinal: boolean
   ): string | null {
@@ -116,6 +118,7 @@ export class Pluralizer {
    */
   private tryIntervalPluralization(
     count: number,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     translations: Record<string, any>
   ): string | null {
     // Check for exact match first

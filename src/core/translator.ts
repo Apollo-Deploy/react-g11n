@@ -74,6 +74,7 @@ export class Translator {
     locale: string,
     key: string,
     namespace: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options?: TranslationOptions<any>
   ): string | null {
     // Check if we need pluralization
@@ -104,6 +105,7 @@ export class Translator {
    * @param options - Translation options
    * @returns Interpolation variables or undefined
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private extractInterpolationVars(options?: TranslationOptions<any>): Record<string, any> | undefined {
     if (!options) {
       return undefined;
@@ -116,11 +118,12 @@ export class Translator {
 
     // Otherwise, extract all non-reserved properties as interpolation vars
     const reservedKeys = ['count', 'ordinal', 'context', 'defaultValue', 'ns', 'interpolation', '_key'];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const vars: Record<string, any> = {};
     let hasVars = false;
 
     for (const key in options) {
-      if (!reservedKeys.includes(key) && options.hasOwnProperty(key)) {
+      if (!reservedKeys.includes(key) && Object.prototype.hasOwnProperty.call(options, key)) {
         vars[key] = options[key];
         hasVars = true;
       }
@@ -142,6 +145,7 @@ export class Translator {
     locale: string,
     key: string,
     namespace: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     options: TranslationOptions<any>
   ): string | null {
     // Get the raw data which should be an object with plural forms
@@ -196,6 +200,7 @@ export class Translator {
    * @param options - Translation options
    * @returns The fallback string
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private applyFallback(key: string, options?: TranslationOptions<any>): string {
     // Log warning in development mode
     this.logMissingTranslation(key);

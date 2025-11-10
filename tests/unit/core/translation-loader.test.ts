@@ -166,7 +166,7 @@ describe('TranslationLoader', () => {
 
   describe('debug mode logging', () => {
     it('should log loading attempts in debug mode', async () => {
-      const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
       const mockData = { hello: 'Hello' };
       global.fetch = vi.fn().mockResolvedValue({
         ok: true,

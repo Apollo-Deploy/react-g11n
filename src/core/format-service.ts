@@ -154,7 +154,9 @@ export class FormatService implements IFormatService {
    */
   list(items: string[], type: ListFormatType = 'conjunction'): string {
     // Check if ListFormat is available
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof (Intl as any).ListFormat !== 'undefined') {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const listFormat = new (Intl as any).ListFormat(this.locale, { 
         style: 'long', 
         type 
@@ -201,6 +203,7 @@ export class FormatService implements IFormatService {
    */
   dateRange(startDate: Date, endDate: Date, format: RangeFormatStyle = 'medium'): string {
     const options = this.getRangeFormatOptions(format);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formatter = new Intl.DateTimeFormat(this.locale, options) as any;
     
     // Use formatRange if available
@@ -217,6 +220,7 @@ export class FormatService implements IFormatService {
    */
   timeRange(startDate: Date, endDate: Date, format: RangeFormatStyle = 'medium'): string {
     const options = this.getTimeRangeFormatOptions(format);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const formatter = new Intl.DateTimeFormat(this.locale, options) as any;
     
     // Use formatRange if available

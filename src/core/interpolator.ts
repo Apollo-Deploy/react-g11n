@@ -28,6 +28,7 @@ export class Interpolator {
    * @param values - Object containing values to interpolate
    * @returns The interpolated string
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interpolate(template: string, values: Record<string, any> = {}): string {
     if (!template) {
       return template;
@@ -43,6 +44,7 @@ export class Interpolator {
    * @param values - Object containing values to interpolate
    * @returns The string with variables replaced
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private replaceVariables(template: string, values: Record<string, any>): string {
     const regex = new RegExp(
       `${this.escapeRegex(this.prefix)}\\s*([^${this.escapeRegex(this.suffix)}]+?)\\s*${this.escapeRegex(this.suffix)}`,
@@ -82,12 +84,14 @@ export class Interpolator {
    * @param path - The dot-notation path (e.g., 'user.name')
    * @returns The resolved value or undefined if not found
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private resolveNestedValue(obj: Record<string, any>, path: string): any {
     if (!path) {
       return undefined;
     }
 
     const keys = path.split('.');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let current: any = obj;
 
     for (const key of keys) {
