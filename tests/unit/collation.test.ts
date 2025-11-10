@@ -24,8 +24,8 @@ describe('CollationService', () => {
       const sorted = collation.sort(items, { sensitivity: 'base' });
       
       // Case-insensitive: apple/Apple should be together
-      expect(sorted[0].toLowerCase()).toBe('apple');
-      expect(sorted[1].toLowerCase()).toBe('apple');
+      expect(sorted[0]?.toLowerCase()).toBe('apple');
+      expect(sorted[1]?.toLowerCase()).toBe('apple');
     });
 
     it('should support numeric sorting', () => {
@@ -102,9 +102,9 @@ describe('CollationService', () => {
       
       const sorted = collation.sortBy(users, (user) => user.name);
       
-      expect(sorted[0].name).toBe('Ángel');
-      expect(sorted[1].name).toBe('Bob');
-      expect(sorted[2].name).toBe('Zoe');
+      expect(sorted[0]?.name).toBe('Ángel');
+      expect(sorted[1]?.name).toBe('Bob');
+      expect(sorted[2]?.name).toBe('Zoe');
     });
 
     it('should support custom collation options', () => {
@@ -117,9 +117,9 @@ describe('CollationService', () => {
       
       const sorted = collation.sortBy(items, (item) => item.id, { numeric: true });
       
-      expect(sorted[0].id).toBe('item1');
-      expect(sorted[1].id).toBe('item2');
-      expect(sorted[2].id).toBe('item10');
+      expect(sorted[0]?.id).toBe('item1');
+      expect(sorted[1]?.id).toBe('item2');
+      expect(sorted[2]?.id).toBe('item10');
     });
 
     it('should not mutate the original array', () => {
